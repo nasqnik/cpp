@@ -4,12 +4,13 @@ RM 			= rm -rf
 
 NAME		= phonebook
 
-SRC			= PhoneBook.cpp
+SRC			= main.cpp PhoneBook.cpp Contact.cpp
 OBJ			= $(SRC:%.cpp=%.o)
+HEADERS		= PhoneBook.hpp Contact.hpp
 
 all:		$(NAME)
 
-$(NAME):	$(OBJ)
+$(NAME):	$(OBJ) $(HEADERS)
 			$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
 %.o:		%.cpp
