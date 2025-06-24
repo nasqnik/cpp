@@ -2,20 +2,21 @@
 #define PHONEBOOK_HPP
 
 #include "Contact.hpp"
+#include <iostream>
+
+void handleEOF();
 
 class PhoneBook
 {
+    private:
+        Contact _contacts[8];
+        int     _index;
+
     public:
         PhoneBook();
         void addContact();
         void searchContact();
-        Contact contacts[8];
-
-    private:
-        int     _index;
-        static bool getIntInput(const std::string &prompt, int &value);
-
-
+        void viewContacts() const;
 };
 
 #endif

@@ -1,22 +1,34 @@
 #ifndef CONTACT_HPP
 #define CONTACT_HPP
 
-#include <iostream>
-#include <iomanip>
-#include <sstream>
 #include <string>
+#include <iostream>
+#include <sstream>
+
+void handleEOF();
 
 class Contact
 {
+    private:
+        std::string _firstName;
+        std::string _lastName;
+        std::string _nickname;
+        std::string _phoneNumber;
+        std::string _darkestSecret;
+    
     public:
-        std::string first_name;
-        std::string last_name;
-        std::string nickname;
-        std::string phone_number;
-        std::string darkest_secret;
+        void setFirstName(const std::string &value);
+        void setLastName(const std::string &value);
+        void setNickname(const std::string &value);
+        void setPhoneNumber(const std::string &value);
+        void setDarkestSecret(const std::string &value);
 
-        void printContact(int index, const Contact &c);
-        void inputField(const std::string &prompt, std::string &field);
+        std::string getFirstName() const;
+
+        void promptInput();
+        void addInput(const std::string &prompt, std::string &field);
+        void displayContact(int i) const;
+        void displayContactLineByLine() const;
 };
 
 #endif
