@@ -1,4 +1,5 @@
 #include "PhoneBook.hpp"
+#include <sstream>
 
 PhoneBook::PhoneBook(): _index(0) {}
 
@@ -17,19 +18,27 @@ void PhoneBook::searchContact()
     int index = -1;
     std::string input;
 
-    do
+    while (true)
     {
         std::cout << "Enter an index (1–8) to view details or 0 to cancel: ";
         std::getline(std::cin, input);
         handleEOF();
-        index = atoi(input.c_str());  //accepts numbers
+
+        std::stringstream ss(input);
+        if (!(ss >> index) || !ss.eof()) {
+            std::cout << "Invalid input. Please enter a number." << std::endl;
+            continue;
+        }
+
         if (index == 0)
             return;
         if (index < 1 || index > 8)
             std::cout << "Invalid index. Try again." << std::endl;
         else if (_contacts[index - 1].getFirstName().empty())
             std::cout << "No such contact. Try again." << std::endl;
-    } while (index < 1 || index > 8 || _contacts[index - 1].getFirstName().empty());
+        else
+            break;
+    }
     _contacts[index - 1].displayContactLineByLine();
 }
 

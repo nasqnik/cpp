@@ -2,11 +2,11 @@ CC			= c++
 CFLAGS		= -Wall -Wextra -Werror -std=c++98
 RM 			= rm -rf
 
-NAME		= phonebook
+NAME		= BraiiiiiiinnnzzzZ
 
-SRC			= main.cpp PhoneBook.cpp Contact.cpp
+SRC			= main.cpp newZombie.cpp Zombie.cpp randomChump.cpp
 OBJ			= $(SRC:%.cpp=%.o)
-HEADERS		= PhoneBook.hpp Contact.hpp
+HEADERS		= Zombie.hpp
 
 all:		$(NAME)
 

@@ -2,9 +2,6 @@
 #define PHONEBOOK_HPP
 
 #include "Contact.hpp"
-#include <iostream>
-
-void handleEOF();
 
 class PhoneBook
 {

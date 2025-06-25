@@ -2,7 +2,6 @@
 #include <string>
 
 #include "PhoneBook.hpp"
-#include "Contact.hpp"
 
 int main()
 {
@@ -14,11 +13,11 @@ int main()
         std::cout << "Pick the command ADD, SEARCH or EXIT, and enter it" << std::endl;
         std::getline(std::cin, command);
         handleEOF();
-        if (std::strcmp(command.c_str(), "ADD") == 0)
+        if (command == "ADD")
             phone_book.addContact();
-        else if (std::strcmp(command.c_str(), "SEARCH") == 0)
+        else if (command == "SEARCH")
             phone_book.searchContact();
-        else if (std::strcmp(command.c_str(), "EXIT") == 0)
+        else if (command == "EXIT")
             break;
     }
     return (0);
