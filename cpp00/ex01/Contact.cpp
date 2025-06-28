@@ -28,7 +28,8 @@ void Contact::addInput(const std::string &prompt, std::string &field)
         std::getline(std::cin, temp);
         field = trim(temp);
         handleEOF();
-    } while (field.empty() || isOnlySpaces(field) || (&field == &_phoneNumber && !isValidPhoneNumber(field)));
+    } while (field.empty() || isOnlySpaces(field) 
+        || (&field == &_phoneNumber && !isValidPhoneNumber(field)));
 }
 
 void Contact::displayContact(int i) const

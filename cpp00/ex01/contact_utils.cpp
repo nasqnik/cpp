@@ -47,31 +47,6 @@ void Contact::displayLine(const std::string &field_name, const std::string &valu
     std::cout << field_name << value << std::endl;
 }
 
-void Contact::setFirstName(const std::string &value)
-{
-    _firstName = value;
-}
-
-void Contact::setLastName(const std::string &value)
-{
-    _lastName = value;
-}
-
-void Contact::setNickname(const std::string &value)
-{
-    _nickname = value;
-}
-
-void Contact::setPhoneNumber(const std::string &value)
-{
-    _phoneNumber = value;
-}
-
-void Contact::setDarkestSecret(const std::string &value)
-{
-    _darkestSecret = value;
-}
-
 std::string Contact::getFirstName() const
 {
     return _firstName;

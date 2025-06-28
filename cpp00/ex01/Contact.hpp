@@ -25,12 +25,6 @@ class Contact
         std::string trim(const std::string& str);
         
     public:
-        void setFirstName(const std::string &value);
-        void setLastName(const std::string &value);
-        void setNickname(const std::string &value);
-        void setPhoneNumber(const std::string &value);
-        void setDarkestSecret(const std::string &value);
-
         std::string getFirstName() const;
 
         void promptInput();
