@@ -9,6 +9,16 @@ void handleEOF()
     }
 }
 
+bool isOnlySpaces(std::string input)
+{
+    for (size_t i = 0; i < input.length(); i++)
+    {
+        if (!std::isspace(input[i]))
+            return false;
+    }
+    return true;
+}
+
 void Contact::setFirstName(const std::string &value)
 {
     _firstName = value;
@@ -55,7 +65,7 @@ void Contact::addInput(const std::string &prompt, std::string &field)
         std::cout << prompt;
         std::getline(std::cin, field);
         handleEOF();
-    } while (field.empty());
+    } while (field.empty() || isOnlySpaces(field));
 }
 
 std::string formatField(const std::string &str) {
