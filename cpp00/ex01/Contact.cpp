@@ -85,25 +85,21 @@ bool Contact::isOnlySpaces(const std::string &input) const
     return true;
 }
 
-std::string Contact::formatField(const std::string &str) const
+std::string Contact::truncateField(const std::string &str) const
 {
     if (str.length() > 10)
         return str.substr(0, 9) + ".";
-    else
-        return std::string(10 - str.length(), ' ') + str;
+    return str;
 }
 
 void Contact::displayContact(int i) const
 {
-    std::ostringstream num;
-    num << i + 1;
-    std::string index = num.str();
-
     std::cout << "|" 
-              << formatField(index) << "|"
-              << formatField(_firstName) << "|"
-              << formatField(_lastName) << "|"
-              << formatField(_nickname) << "|" << std::endl;
+              << std::setw(10) << (i + 1) << "|"
+              << std::setw(10) << truncateField(_firstName) << "|"
+              << std::setw(10) << truncateField(_lastName) << "|"
+              << std::setw(10) << truncateField(_nickname) << "|" 
+              << std::endl;
 }
 
 void Contact::displayContactLineByLine() const

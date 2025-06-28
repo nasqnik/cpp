@@ -4,6 +4,7 @@
 #include <string>
 #include <iostream>
 #include <sstream>
+#include <iomanip>
 
 void handleEOF();
 
@@ -18,8 +19,8 @@ class Contact
     
         void addInput(const std::string &prompt, std::string &field);
         void displayLine(const std::string &field_name, const std::string &value) const;
-        std::string formatField(const std::string &str) const;
         bool isOnlySpaces(const std::string &input) const;
+        std::string truncateField(const std::string &str) const;
         std::string trim(const std::string& str);
         
     public:
