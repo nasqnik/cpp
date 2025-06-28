@@ -4,7 +4,7 @@ RM 			= rm -rf
 
 NAME		= phonebook
 
-SRC			= main.cpp PhoneBook.cpp Contact.cpp
+SRC			= main.cpp PhoneBook.cpp Contact.cpp contact_utils.cpp
 OBJ			= $(SRC:%.cpp=%.o)
 HEADERS		= PhoneBook.hpp Contact.hpp
 

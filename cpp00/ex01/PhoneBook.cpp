@@ -11,7 +11,18 @@ void PhoneBook::addContact()
     _index++;
 }
 
-void PhoneBook::searchContact()
+void PhoneBook::search() const
+{
+    if (_contacts[0].getFirstName().empty())
+    {
+        std::cout << "Please add a contact first" << std::endl;
+        return;
+    }
+    else
+        searchContact();
+}
+
+void PhoneBook::searchContact() const
 {
     viewContacts();
 
@@ -42,10 +53,19 @@ void PhoneBook::searchContact()
     _contacts[index - 1].displayContactLineByLine();
 }
 
+void PhoneBook::header() const
+{
+    std::cout << "|" 
+              << std::setw(10) << "INDEX" << "|"
+              << std::setw(10) << "FIRST NAME" << "|"
+              << std::setw(10) << "LAST NAME" << "|"
+              << std::setw(10) << "NICKNAME" << "|" 
+              << std::endl;
+}
+
 void PhoneBook::viewContacts() const
 {
-    std::cout << "|     INDEX|FIRST NAME| LAST NAME|  NICKNAME|" << std::endl;
-
+    header();
     for (int i = 0; i < 8; i++)
     {
         if (!_contacts[i].getFirstName().empty())

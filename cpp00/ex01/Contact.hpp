@@ -20,6 +20,7 @@ class Contact
         void addInput(const std::string &prompt, std::string &field);
         void displayLine(const std::string &field_name, const std::string &value) const;
         bool isOnlySpaces(const std::string &input) const;
+        bool isValidPhoneNumber(const std::string &phone) const;
         std::string truncateField(const std::string &str) const;
         std::string trim(const std::string& str);
         

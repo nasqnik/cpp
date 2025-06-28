@@ -16,7 +16,7 @@ int main()
         if (command == "ADD")
             phone_book.addContact();
         else if (command == "SEARCH")
-            phone_book.searchContact();
+            phone_book.search();
         else if (command == "EXIT")
             break;
     }

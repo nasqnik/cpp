@@ -8,11 +8,13 @@ class PhoneBook
     private:
         Contact _contacts[8];
         int     _index;
+        void header() const;
+        void searchContact() const;
 
     public:
         PhoneBook();
         void addContact();
-        void searchContact();
+        void search() const;
         void viewContacts() const;
 };
 
