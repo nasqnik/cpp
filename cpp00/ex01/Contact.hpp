@@ -16,6 +16,12 @@ class Contact
         std::string _phoneNumber;
         std::string _darkestSecret;
     
+        void addInput(const std::string &prompt, std::string &field);
+        void displayLine(const std::string &field_name, const std::string &value) const;
+        std::string formatField(const std::string &str) const;
+        bool isOnlySpaces(const std::string &input) const;
+        std::string trim(const std::string& str);
+        
     public:
         void setFirstName(const std::string &value);
         void setLastName(const std::string &value);
@@ -26,7 +32,6 @@ class Contact
         std::string getFirstName() const;
 
         void promptInput();
-        void addInput(const std::string &prompt, std::string &field);
         void displayContact(int i) const;
         void displayContactLineByLine() const;
 };
