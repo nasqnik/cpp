@@ -50,7 +50,7 @@ int main(int argc, char **argv)
     }
     else
     {
-        std::cout << "Usage: ./sed_is_for_losers filename s1 s2" << std::endl;
+        std::cout << "Usage: ./sed filename s1 s2" << std::endl;
         return 1;
     }
 }
