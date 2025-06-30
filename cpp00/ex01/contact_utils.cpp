@@ -29,7 +29,7 @@ bool Contact::isValidPhoneNumber(const std::string &phone) const
     {
         if (!std::isdigit(phone[i]))
         {
-            std::cout << "Error: phone number can contain only digits" << std::endl;
+            std::cerr << "Error: phone number can contain only digits" << std::endl;
             return false;
         }
     }
@@ -50,4 +50,13 @@ void Contact::displayLine(const std::string &field_name, const std::string &valu
 std::string Contact::getFirstName() const
 {
     return _firstName;
+}
+
+void handleEOF() 
+{
+    if (std::cin.eof()) 
+    {
+        std::cout << "\nEOF detected. Exiting program." << std::endl;
+        exit(0);
+    }
 }

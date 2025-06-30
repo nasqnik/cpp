@@ -1,14 +1,5 @@
 #include "Contact.hpp"
 
-void handleEOF() 
-{
-    if (std::cin.eof()) 
-    {
-        std::cout << "\nEOF detected. Exiting program." << std::endl;
-        exit(0);
-    }
-}
-
 void Contact::promptInput()
 {
     addInput("FIRST NAME: ", _firstName);
@@ -26,8 +17,8 @@ void Contact::addInput(const std::string &prompt, std::string &field)
     {
         std::cout << prompt;
         std::getline(std::cin, temp);
-        field = trim(temp);
         handleEOF();
+        field = trim(temp);
     } while (field.empty() || isOnlySpaces(field) 
         || (&field == &_phoneNumber && !isValidPhoneNumber(field)));
 }

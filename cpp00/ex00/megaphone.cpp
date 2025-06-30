@@ -1,23 +1,20 @@
 #include <iostream>
 #include <cctype>
+#include <string>
 
 int main(int argc, char **argv)
 {
     if (argc == 1)
-        std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
+        std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
     else
     {
         for (int i = 1; i < argc; i++)
         {
-            for (int j = 0; argv[i][j] != '\0'; j++)
-            {
-                if (std::isalpha(argv[i][j]))
-                    std::cout << static_cast<char>(std::toupper(argv[i][j])); 
-                else
-                    std::cout << argv[i][j];
-            }
+            std::string str(argv[i]);
+            for (size_t j = 0; j < str.length(); j++)
+                std::cout << static_cast<char>(std::toupper(static_cast<unsigned char>(str[j]))); 
         }
+        std::cout << std::endl;
     }
-    std::cout << std::endl;
     return (0);
 }
