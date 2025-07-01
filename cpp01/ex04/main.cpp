@@ -29,7 +29,10 @@ int copy(std::string& filename, const std::string& s1, const std::string& s2)
         return 1;
     std::ofstream ofs;
     if (!openOutputFile(ofs, filename))
+    {
+        ifs.close();
         return 1;
+    }
 
     replaceAndCopyLines(ifs, ofs, s1, s2);
 
