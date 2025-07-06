@@ -2,11 +2,11 @@ CC			= c++
 CFLAGS		= -Wall -Wextra -Werror -std=c++98
 RM 			= rm -rf
 
-NAME		= FragTrap
+NAME		= DiamondTrap
 
-SRC			= main.cpp ScavTrap.cpp ClapTrap.cpp FragTrap.cpp
+SRC			= main.cpp ScavTrap.cpp ClapTrap.cpp FragTrap.cpp DiamondTrap.cpp
 OBJ			= $(SRC:%.cpp=%.o)
-HEADERS		= ScavTrap.hpp ClapTrap.hpp FragTrap.hpp
+HEADERS		= ScavTrap.hpp ClapTrap.hpp FragTrap.hpp DiamondTrap.hpp
 
 all:		$(NAME)
 

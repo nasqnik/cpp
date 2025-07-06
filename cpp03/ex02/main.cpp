@@ -1,12 +1,12 @@
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
-#include "FlagTrap.hpp"
+#include "FragTrap.hpp"
 
 int main()
 {
     ClapTrap basic("BasicBot");
     ScavTrap guard("GuardBot");
-    FlagTrap highfiver("HighFiveBot");
+    FragTrap highfiver("HighFiveBot");
 
     std::cout << std::endl;
 
