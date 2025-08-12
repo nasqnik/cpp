@@ -2,6 +2,7 @@
 
 int main()
 {
+
     ClapTrap a("A");
     ClapTrap b("B");
     std::cout << std::endl;
@@ -29,10 +30,21 @@ int main()
         a.attack("Dummy");
     std::cout << std::endl;
 
-    a.attack("Dummy2");
-    std::cout << std::endl;
-
     a.beRepaired(3);
     std::cout << std::endl;
+
+    // Test copy constructor
+    std::cout << "=== Testing Copy Constructor ===" << std::endl;
+    ClapTrap copyA(a);
+    std::cout << std::endl;
+
+    // Test assignment operator
+    std::cout << "=== Testing Assignment Operator ===" << std::endl;
+    ClapTrap assignedB("Temp");
+    assignedB = b;
+    std::cout << std::endl;
+
     return 0;
+
+    //he has to die :)
 }
