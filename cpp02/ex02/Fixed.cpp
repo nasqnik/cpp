@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: anikitin <anikitin@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/08/13 16:27:37 by anikitin          #+#    #+#             */
+/*   Updated: 2025/08/14 14:28:02 by anikitin         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Fixed.hpp"
 
 const int Fixed::_fractionalBits = 8;
@@ -21,7 +33,7 @@ Fixed::Fixed(const int value)
 Fixed::Fixed(const float floatValue)
 {
     // std::cout << "Float constructor called" << std::endl;
-    _rawBits = roundf(floatValue * (1 << _fractionalBits));
+    _rawBits = static_cast<int>(roundf(floatValue * (1 << _fractionalBits)));
 }
 
 Fixed& Fixed::operator=(const Fixed& num)
@@ -93,7 +105,7 @@ Fixed Fixed::operator-(const Fixed &other) const
 {
     Fixed result;
 
-    result._rawBits = this->_rawBits - other.getRawBits();
+    result._rawBits = this->_rawBits - other._rawBits;
     return result;
 }
 
@@ -138,6 +150,7 @@ Fixed Fixed::operator--(int)
     return temp;
 }
 
+
 // ----------MIN/MAX OPERATORS----------
 
 Fixed& Fixed::min(Fixed& a, Fixed& b)
@@ -157,9 +170,10 @@ const Fixed& Fixed::max(const Fixed& a, const Fixed& b)
     return (a > b ? a:b);
 }
 
+
 int Fixed::getRawBits(void) const
 {
-    // std::cout << "getRawBits member function called" << std::endl;
+    std::cout << "getRawBits member function called" << std::endl;
     return _rawBits;
 }
 

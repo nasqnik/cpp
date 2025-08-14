@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: anikitin <anikitin@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/08/13 16:28:44 by anikitin          #+#    #+#             */
+/*   Updated: 2025/08/14 14:33:41 by anikitin         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Fixed.hpp"
 
 const int Fixed::_fractionalBits = 8;
@@ -21,7 +33,7 @@ Fixed::Fixed(const int value)
 Fixed::Fixed(const float floatValue)
 {
     std::cout << "Float constructor called" << std::endl;
-    _rawBits = roundf(floatValue * (1 << _fractionalBits));
+    _rawBits = static_cast<int>(roundf(floatValue * (1 << _fractionalBits)));
 }
 
 Fixed& Fixed::operator=(const Fixed& num)
