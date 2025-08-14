@@ -93,7 +93,7 @@ Fixed Fixed::operator-(const Fixed &other) const
 {
     Fixed result;
 
-    result._rawBits = this->_rawBits - other._rawBits;
+    result._rawBits = this->_rawBits - other.getRawBits();
     return result;
 }
 
@@ -138,7 +138,6 @@ Fixed Fixed::operator--(int)
     return temp;
 }
 
-
 // ----------MIN/MAX OPERATORS----------
 
 Fixed& Fixed::min(Fixed& a, Fixed& b)
@@ -158,10 +157,9 @@ const Fixed& Fixed::max(const Fixed& a, const Fixed& b)
     return (a > b ? a:b);
 }
 
-
 int Fixed::getRawBits(void) const
 {
-    std::cout << "getRawBits member function called" << std::endl;
+    // std::cout << "getRawBits member function called" << std::endl;
     return _rawBits;
 }
 
