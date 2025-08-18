@@ -11,7 +11,7 @@ int main()
     std::cout << "---Create 2 Dogs with brains---" << std::endl;
     for (int i = 0; i < 2; i++)
     {
-        std::cout << "🐶 Dog " << std::to_string(i + 1) << std::endl;
+        std::cout << "🐶 Dog " << (i + 1) << std::endl;
         array[i] = new Dog();
         std::cout << std::endl;
     }
@@ -19,7 +19,7 @@ int main()
     std::cout << "---Create 2 Cats with brains---" << std::endl;
     for (int i = 2; i < 4; i++)
     {
-        std::cout << "🐱 Cat " << std::to_string(i - 1) << std::endl;
+        std::cout << "🐱 Cat " << (i - 1) << std::endl;
         array[i] = new Cat();
         std::cout << std::endl;
     }

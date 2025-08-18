@@ -1,16 +1,25 @@
 #include "Brain.hpp"
+#include <sstream>
 
 // Orthodox Canonical Form Class
 Brain::Brain() {
     std::cout << "Brain Default constructor has been called" << std::endl;
     for (int i = 0; i < 100; ++i)
-        ideas[i] = "Default idea " + std::to_string(i);
+    {
+        std::ostringstream oss;
+        oss << "Default idea " << i;
+        ideas[i] = oss.str();
+    }
 }
 
 Brain::Brain(const std::string& type) {
     std::cout << "Brain constructor has been called" << std::endl;
     for (int i = 0; i < 100; ++i)
-        ideas[i] = type + "'s idea " + std::to_string(i);
+    {
+        std::ostringstream oss;
+        oss << type << "'s idea " << i;
+        ideas[i] = oss.str();
+    }
 }
 
 Brain::Brain(const Brain &other)

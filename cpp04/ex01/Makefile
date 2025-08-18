@@ -11,10 +11,10 @@ HEADERS		= Animal.hpp Dog.hpp Cat.hpp WrongAnimal.hpp WrongCat.hpp Brain.hpp
 all:		$(NAME)
 
 $(NAME):	$(OBJ) 
-			$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+			$(CC) $(CXXFLAGS) $(OBJ) -o $(NAME)
 
 %.o:		%.cpp $(HEADERS)
-			$(CC) $(CFLAGS) -c $< -o $@
+			$(CC) $(CXXFLAGS) -c $< -o $@
 
 clean:
 			@$(RM) $(OBJ)
