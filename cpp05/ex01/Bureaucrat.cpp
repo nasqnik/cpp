@@ -61,14 +61,24 @@ void Bureaucrat::decrementGrade() {
     ++_grade;
 }
 
+void Bureaucrat::signForm(Form &f) {
+    try {
+        f.beSigned(*this);
+        std::cout << _name << " signed " << f.getName() << std::endl;
+    } catch (const std::exception &e) {
+        std::cout << _name << " couldn’t sign " << f.getName()
+            << " because " << e.what() << std::endl;
+    }
+}
+
 // -----Exceptions-----
 
 const char* Bureaucrat::GradeTooHighException:: what() const throw() {
-    return "Grade is too high!";
+    return "Bureaucrat: grade is too high!";
 }
 
 const char* Bureaucrat::GradeTooLowException:: what() const throw() {
-    return "Grade is too low!";
+    return "Bureaucrat: grade is too low!";
 }
 
 // -----Operator Overload-----
