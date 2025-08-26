@@ -4,6 +4,7 @@
 
 int main()
 {
+    // AAnimal x; // should not compile: cannot instantiate abstract class (pure virtual makeSound)
     AAnimal *array[4];
 
     std::cout << "---Create 2 Dogs with brains---" << std::endl;
@@ -33,6 +34,17 @@ int main()
     std::cout << "---Clean up all---" << std::endl;
     for (int i = 0; i < 4; ++i)
         delete array[i];
+
+    // std::cout << std::endl;
+    // std::cout << "---Deep copy sanity check (Dog)---" << std::endl;
+    // {
+    //     Dog basic;
+    //     basic.getBrain()->setIdea(0, "Basic idea");
+    //     Dog tmp = basic;
+    //     tmp.getBrain()->setIdea(0, "TMP idea");
+    //     std::cout << "basic[0]: " << basic.getBrain()->getIdea(0) << std::endl;
+    //     std::cout << "tmp[0]:   " << tmp.getBrain()->getIdea(0) << std::endl;
+    // }
 
     return 0;
 }

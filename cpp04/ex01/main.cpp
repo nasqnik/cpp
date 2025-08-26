@@ -1,6 +1,8 @@
 #include "Animal.hpp"
 #include "Cat.hpp"
 #include "Dog.hpp"
+#include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
 
 int main()
 {
@@ -91,6 +93,11 @@ int main()
     std::cout << "---Clean up all---" << std::endl;
     for (int i = 0; i < 4; ++i)
         delete array[i];
+
+    std::cout << std::endl;
+    std::cout << "---Non-virtual destructor test (WrongAnimal*)---" << std::endl;
+    const WrongAnimal* w = new WrongCat();
+    delete w;
 
     return 0;
 }

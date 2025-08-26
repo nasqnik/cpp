@@ -1,4 +1,4 @@
-CC			= c++ 
+CXX			= c++ 
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 RM 			= rm -rf
 
@@ -11,10 +11,10 @@ HEADERS		= Animal.hpp Dog.hpp Cat.hpp WrongAnimal.hpp WrongCat.hpp Brain.hpp
 all:		$(NAME)
 
 $(NAME):	$(OBJ) 
-			$(CC) $(CXXFLAGS) $(OBJ) -o $(NAME)
+			$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 
 %.o:		%.cpp $(HEADERS)
-			$(CC) $(CXXFLAGS) -c $< -o $@
+			$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
 			@$(RM) $(OBJ)

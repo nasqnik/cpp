@@ -38,6 +38,11 @@ int main()
     b->makeSound();
     std::cout << std::endl;
 
+    WrongCat directWrongCat;
+    std::cout << "Direct WrongCat sounds: ";
+    directWrongCat.makeSound();
+    std::cout << std::endl;
+
     delete a;
     delete b;
 
