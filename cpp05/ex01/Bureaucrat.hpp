@@ -1,19 +1,17 @@
-#pragma once
-
-#include "Form.hpp"
+#ifndef BUREAUCRAT_HPP
+#define BUREAUCRAT_HPP
 
 #include <string>
 #include <iostream>
 #include <exception>
 
-
 class Form;
 
-class Bureaucrat 
-{
+class Bureaucrat {
+
     private:
-        int _grade;
         const std::string _name;
+        int               _grade;
 
     public:
         // Orthodox Canonical Form
@@ -21,18 +19,15 @@ class Bureaucrat
         Bureaucrat(const Bureaucrat& other);
         Bureaucrat& operator=(const Bureaucrat& other);
         ~Bureaucrat();
-        
-        // Constructor
+
         Bureaucrat(const std::string& name, int grade);
 
         // Getters
         const std::string& getName() const;
         int getGrade() const;
 
-        // Actions
-        void incrementGrade();
-        void decrementGrade();
-        void signForm(Form &f);
+        // Setter
+        void setGrade(int grade);
 
         // Exception classes
         class GradeTooHighException : public std::exception {
@@ -45,6 +40,13 @@ class Bureaucrat
                 virtual const char* what() const throw();
         };
 
-    };
+        // Actions
+        void incrementGrade();
+        void decrementGrade();
+        void signForm(Form &f);
+};
+    
+// Operator overload
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& b);
 
-    std::ostream& operator<<(std::ostream& os, const Bureaucrat &b); 
+#endif
