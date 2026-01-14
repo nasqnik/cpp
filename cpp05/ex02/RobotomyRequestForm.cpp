@@ -26,7 +26,7 @@ RobotomyRequestForm::~RobotomyRequestForm() {
 RobotomyRequestForm::RobotomyRequestForm(const std::string& target) : 
     AForm("RobotomyRequestForm", 72, 45), _target(target)  
 {
-    std::cout << "RobotomyRequestForm Constructor has been called" << std::endl;
+    std::cout << "RobotomyRequestForm Constructor has been called for " << _target << std::endl;
 }
 
 const std::string& RobotomyRequestForm::getTarget() const {
