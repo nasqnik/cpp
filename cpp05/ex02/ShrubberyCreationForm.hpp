@@ -19,7 +19,7 @@ class ShrubberyCreationForm : public AForm {
         ShrubberyCreationForm(const std::string& target);
 
         const std::string& getTarget() const;
-        void setTarget(const std::string target);
+        void setTarget(const std::string& target);
 
     protected:
         virtual void executeForm(Bureaucrat const &executor) const;

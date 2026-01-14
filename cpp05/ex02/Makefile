@@ -4,9 +4,9 @@ RM 			= rm -rf
 
 NAME		= ex02
 
-SRC			= main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp
+SRC			= main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp
 OBJ			= $(SRC:%.cpp=%.o)
-HEADERS		= Bureaucrat.hpp AForm.hpp ShrubberyCreationForm.hpp
+HEADERS		= Bureaucrat.hpp AForm.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp
 
 all:		$(NAME)
 
