@@ -3,31 +3,30 @@
 
 int main(void)
 {
-    {
-        std::cout << std::endl;
-        std::cout << "-----Orthodox Canonical Form Check-----" << std::endl;
+    // {
+    //     std::cout << std::endl;
+    //     std::cout << "-----Orthodox Canonical Form Check-----" << std::endl;
         
-        Form a;
+    //     Form a;
 
-        std::cout << a << std::endl;
-        std::cout << std::endl;
+    //     std::cout << a << std::endl;
+    //     std::cout << std::endl;
 
-        Form b("B", 150, 150);
-        std::cout << b << std::endl;
-        std::cout << std::endl;
+    //     Form b("B", 150, 150);
+    //     std::cout << b << std::endl;
+    //     std::cout << std::endl;
 
-        Form c(b);
-        std::cout << c << std::endl;
-        std::cout << std::endl;
+    //     Form c(b);
+    //     std::cout << c << std::endl;
+    //     std::cout << std::endl;
 
-        a.setSigned(true);
-        b = a;
-        std::cout << b << std::endl;
+    //     b = a;
+    //     std::cout << b << std::endl;
 
-    }
+    // }
+    // std::cout << std::endl;
+    
     std::cout << std::endl;
-    std::cout << std::endl;
-
     {
         std::cout << "-----Exceptions Check-----" << std::endl;
 
@@ -36,7 +35,7 @@ int main(void)
             std::cout << a << std::endl;
             std::cout << std::endl;
         }
-        catch (std::exception& e) {
+        catch (const std::exception& e) {
             std::cerr << "Exception form A: " << e.what() << std::endl; 
         }
         std::cout << std::endl;
@@ -46,7 +45,7 @@ int main(void)
             std::cout << b << std::endl;
             std::cout << std::endl;
         }
-        catch (std::exception& e) {
+        catch (const std::exception& e) {
             std::cerr << "Exception form B: " << e.what() << std::endl; 
         }
         std::cout << std::endl;
@@ -56,7 +55,7 @@ int main(void)
             std::cout << c << std::endl;
             std::cout << std::endl;
         }
-        catch (std::exception& e) {
+        catch (const std::exception& e) {
             std::cerr << "Exception form C: " << e.what() << std::endl; 
         }
         std::cout << std::endl;
@@ -66,7 +65,7 @@ int main(void)
             std::cout << d << std::endl;
             std::cout << std::endl;
         }
-        catch (std::exception& e) {
+        catch (const std::exception& e) {
             std::cerr << "Exception form D: " << e.what() << std::endl; 
         }
         std::cout << std::endl;
@@ -76,11 +75,10 @@ int main(void)
             std::cout << ee << std::endl;
             std::cout << std::endl;
         }
-        catch (std::exception& e) {
+        catch (const std::exception& e) {
             std::cerr << "Exception form E: " << e.what() << std::endl; // shouldn't be an exception
         }
     }
-    std::cout << std::endl;
     std::cout << std::endl;
     {
         std::cout << "-----Form Sign Check-----" << std::endl;
@@ -97,9 +95,11 @@ int main(void)
         std::cout << b << std::endl;
         std::cout << std::endl;
 
-        a.signForm(f);
         b.signForm(f);
+        a.signForm(f);
+        std::cout << std::endl;
 
+        std::cout << f << std::endl;
         std::cout << std::endl;
     }
 
