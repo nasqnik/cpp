@@ -26,7 +26,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target) : 
     AForm("ShrubberyCreationForm", 145, 137), _target(target)  
 {
-    std::cout << "ShrubberyCreationForm Constructor has been called for" << _target << std::endl;
+    std::cout << "ShrubberyCreationForm Constructor has been called for " << _target << std::endl;
 }
 
 const std::string& ShrubberyCreationForm::getTarget() const {
