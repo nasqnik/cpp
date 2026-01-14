@@ -26,29 +26,30 @@ int main(void)
 
     try {
         std::cout << std::endl;
-        Bureaucrat f("F", 42); // should print
+        Bureaucrat f("F", 42);
         std::cout << f << std::endl;
+        std::cout << std::endl;
     }
-    catch (std::exception& e) {
-        std::cerr << "Exception bureaucrat F: " << e.what() << std::endl; // shouldn't be an exception
+    catch (const std::exception& e) {
+        std::cerr << "Exception bureaucrat F: " << e.what() << std::endl;
     }
 
     try {
         Bureaucrat d("D", 151);
-        std::cout << d << std::endl; // it shouldn't print
+        std::cout << d << std::endl;
         std::cout << std::endl;
     } 
-    catch (std::exception& e) {
+    catch (const std::exception& e) {
         std::cerr << "Exception bureaucrat D: " << e.what() << std::endl;
     }
 
     try {
         std::cout << std::endl;
         Bureaucrat ee("E", 0);
-        std::cout << ee << std::endl; // it shouldn't print
+        std::cout << ee << std::endl;
         std::cout << std::endl;
     }
-    catch (std::exception& e) {
+    catch (const std::exception& e) {
         std::cerr << "Exception bureaucrat E: " << e.what() << std::endl;
     }
 
@@ -59,10 +60,10 @@ int main(void)
         Bureaucrat g("G", 150);
         std::cout << g << std::endl;
         g.decrementGrade();
-        std::cout << "After decrement: " << g << std::endl; // shouldn't print
+        std::cout << "After decrement: " << g << std::endl;
         std::cout << std::endl;
     }
-    catch (std::exception& e) {
+    catch (const std::exception& e) {
         std::cerr << "Decrement exception for G: " << e.what() << std::endl;
     }
     std::cout << std::endl;
@@ -70,10 +71,10 @@ int main(void)
         Bureaucrat h("H", 1);
         std::cout << h << std::endl;
         h.incrementGrade();
-        std::cout << "After increment: " << h << std::endl; // shouldn't print
+        std::cout << "After increment: " << h << std::endl;
         std::cout << std::endl;
     }
-    catch (std::exception& e) {
+    catch (const std::exception& e) {
         std::cerr << "Increment exception for H: " << e.what() << std::endl;
     }
     std::cout << std::endl;
@@ -86,7 +87,8 @@ int main(void)
         std::cout << "After decrement: " << i << std::endl;
         std::cout << std::endl;
     }
-    catch (std::exception& e) {
-        std::cerr << "Increment/Decrement exception for I: " << e.what() << std::endl; // shouldn't print
+    catch (const std::exception& e) {
+        std::cerr << "Increment/Decrement exception for I: " << e.what() << std::endl;
     }
+    return 0;
 }
