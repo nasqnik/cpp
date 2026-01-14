@@ -28,35 +28,33 @@ class AForm {
         int getGradeSign() const;
         int getGradeExec() const;
 
-        void setSigned(bool sign);
-
     // Exception classes
     
     class GradeTooHighException : public std::exception {
         public:
-            virtual const char* what() const throw();
+            const char* what() const throw();
     };
 
     class GradeTooLowException : public std::exception {
         public:
-            virtual const char* what() const throw();
+            const char* what() const throw();
     };
 
     class FormNotSignedException : public std::exception {
         public:
-            virtual const char* what() const throw();
+            const char* what() const throw();
     };
 
     class FormAlreadySignedException : public std::exception {
         public:
-            virtual const char* what() const throw();
+            const char* what() const throw();
     };
 
         void beSigned(const Bureaucrat& b);
         void execute(Bureaucrat const &executor) const;
 
     protected:
-        virtual void executeForm(Bureaucrat const &executor) const = 0;
+        virtual void executeForm(Bureaucrat const& executor) const = 0;
 
 };
 

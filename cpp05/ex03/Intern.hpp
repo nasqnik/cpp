@@ -1,8 +1,11 @@
 #ifndef INTERN_HPP
 #define INTERN_HPP
 
-#include "AForm.hpp"
 #include <iostream>
+#include <string>
+#include <exception>
+
+class AForm;
 
 class Intern {
 
@@ -22,7 +25,7 @@ class Intern {
             const char *what() const throw();
         };
         
-        AForm* makeForm(const std::string& formName, const std::string& target);
+        AForm* makeForm(const std::string& formName, const std::string& target) const;
     };
 
 #endif

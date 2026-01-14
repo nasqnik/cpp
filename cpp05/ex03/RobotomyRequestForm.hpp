@@ -2,7 +2,6 @@
 #define ROBOTOMYREQUESTFORM_HPP
 
 #include "AForm.hpp"
-#include "Bureaucrat.hpp"
 
 #include <cstdlib>
 #include <ctime>

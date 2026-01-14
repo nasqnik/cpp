@@ -3,30 +3,30 @@
 
 AForm::AForm() : 
     _name("Form"), _signed(false), _gradeSign(1), _gradeExec(1) {
-        std::cout << "Form Default Constructor has been called" << std::endl;
+        // std::cout << "Form Default Constructor has been called" << std::endl;
 }
 
 AForm::AForm(const AForm& other) :
     _name(other._name), _signed(other._signed), _gradeSign(other._gradeSign), _gradeExec(other._gradeExec) {
-        std::cout << "Form Default Copy Constructor has been called" << std::endl;
+        // std::cout << "Form Default Copy Constructor has been called" << std::endl;
 }
 
 AForm& AForm::operator=(const AForm& other) {
 
-    std::cout << "Form Copy Assignment Operator has been called" << std::endl;
+    // std::cout << "Form Copy Assignment Operator has been called" << std::endl;
     if (this != &other)
         _signed = other._signed;
     return *this;
 }
 
 AForm::~AForm() {
-    std::cout << "Form Default Destructor has been called" << std::endl;
+    // std::cout << "Form Destructor has been called" << std::endl;
 }
 
 AForm::AForm(const std::string& name, int gradeSign, int gradeExec) :
     _name(name), _signed(false), _gradeSign(gradeSign), _gradeExec(gradeExec) {
 
-    std::cout << "Form Constructor has been called for " << _name << std::endl;
+    // std::cout << "Form Constructor has been called for " << _name << std::endl;
     if (gradeSign > 150 || gradeExec > 150)
         throw GradeTooLowException();
     if (gradeSign < 1 || gradeExec < 1)
@@ -49,10 +49,6 @@ int AForm::getGradeSign() const {
 
 int AForm::getGradeExec() const {
     return _gradeExec;
-}
-
-void AForm::setSigned(bool sign) {
-    _signed = sign;
 }
 
 // Exceptions
@@ -88,7 +84,6 @@ void AForm::execute(Bureaucrat const &executor) const {
         
     executeForm(executor);
 }
-
 
 // << Operator overload
 

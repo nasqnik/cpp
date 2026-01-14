@@ -2,16 +2,16 @@
 
 ShrubberyCreationForm::ShrubberyCreationForm() : 
     AForm("ShrubberyCreationForm", 145, 137), _target("default") {
-    std::cout << "ShrubberyCreationForm Default Constructor has been called" << std::endl;
+    // std::cout << "ShrubberyCreationForm Default Constructor has been called" << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other) :
     AForm(other), _target(other._target) {
-    std::cout << "ShrubberyCreationForm Copy Constructor has been called" << std::endl;
+    // std::cout << "ShrubberyCreationForm Copy Constructor has been called" << std::endl;
 }
 
 ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& other) {
-    std::cout << "ShrubberyCreationForm Copy Assignment Operator has been called" << std::endl;
+    // std::cout << "ShrubberyCreationForm Copy Assignment Operator has been called" << std::endl;
     if (this != &other) {
         AForm::operator=(other);
         _target = other._target;
@@ -20,13 +20,13 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {
-    std::cout << "ShrubberyCreationForm Destructor has been called" << std::endl;
+    // std::cout << "ShrubberyCreationForm Destructor has been called" << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target) : 
     AForm("ShrubberyCreationForm", 145, 137), _target(target)  
 {
-    std::cout << "ShrubberyCreationForm Constructor has been called for " << _target << std::endl;
+    // std::cout << "ShrubberyCreationForm Constructor has been called for " << _target << std::endl;
 }
 
 const std::string& ShrubberyCreationForm::getTarget() const {
@@ -38,10 +38,13 @@ void ShrubberyCreationForm::setTarget(const std::string& target) {
 }
 
 void ShrubberyCreationForm::executeForm(Bureaucrat const &executor) const {
+    
+    (void)executor;
+
     std::string fileName = _target + "_shrubbery";
     std::ofstream file(fileName.c_str());
     
-    std::cout << executor.getName() << " created Shrubbery Form " << fileName << std::endl; 
+    // std::cout << executor.getName() << " created Shrubbery Form " << fileName << std::endl; 
     
     if (!file.is_open()) {
         std::cerr << "Error: Couldn't create file " << fileName << std::endl;

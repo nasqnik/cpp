@@ -1,13 +1,17 @@
 #include "Intern.hpp"
 #include "Bureaucrat.hpp"
+#include "AForm.hpp"
 #include <iostream>
+
+#include <cstdlib>
+#include <ctime>
 
 int main(void)
 {
-    std::cout << std::endl;
 
     Intern i;
     Bureaucrat a("A", 1);
+    std::srand(std::time(NULL));
 
     std::cout << std::endl;
     std::cout << "-----Unknown Form-----" << std::endl;
@@ -26,8 +30,8 @@ int main(void)
         AForm* form2 = i.makeForm("shrubbery creation", "tree");
 
         std::cout << std::endl;
-        form2->beSigned(a);
-        form2->execute(a);
+        a.signForm(*form2);
+        a.executeForm(*form2);
         std::cout << std::endl;
         delete form2;
     }
@@ -40,8 +44,8 @@ int main(void)
     try {
         AForm* form3 = i.makeForm("robotomy request", "Victim2");
         std::cout << std::endl;
-        form3->beSigned(a);
-        form3->execute(a);
+        a.signForm(*form3);
+        a.executeForm(*form3);
         std::cout << std::endl;
         delete form3;
     }
@@ -56,8 +60,8 @@ int main(void)
 
         form4 = i.makeForm("presidential pardon", "Victim3");
         std::cout << std::endl;
-        form4->beSigned(a);
-        form4->execute(a);
+        a.signForm(*form4);
+        a.executeForm(*form4);
         std::cout << std::endl;
         delete form4;
     }

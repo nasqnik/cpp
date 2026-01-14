@@ -2,9 +2,10 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "AForm.hpp"
 
 Intern::Intern() {
-    std::cout << "Intern Default Constructor has been called" << std::endl;
+    // std::cout << "Intern Default Constructor has been called" << std::endl;
 }
 
 Intern::Intern(const Intern& other) { (void)other; }
@@ -32,7 +33,7 @@ const char* Intern::UnknownFormException::what() const throw() {
     return "Unknown Form Name";
 }
 
-AForm* Intern::makeForm(const std::string& formName, const std::string& target) {
+AForm* Intern::makeForm(const std::string& formName, const std::string& target) const {
     
     const std::string formNames[3] = {
         "shrubbery creation",
