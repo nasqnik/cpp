@@ -41,6 +41,11 @@ class Form {
         public:
             virtual const char* what() const throw();
     };
+    
+    class FormAlreadySignedException : public std::exception {
+        public:
+            virtual const char* what() const throw();
+    };
 
     void beSigned(const Bureaucrat& b);
 };
