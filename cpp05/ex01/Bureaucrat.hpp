@@ -41,7 +41,7 @@ class Bureaucrat {
         // Actions
         void incrementGrade();
         void decrementGrade();
-        void signForm(Form &f);
+        void signForm(Form &f) const;
 };
     
 // Operator overload
