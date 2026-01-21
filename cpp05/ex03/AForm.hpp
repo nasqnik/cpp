@@ -45,11 +45,6 @@ class AForm {
             const char* what() const throw();
     };
 
-    class FormAlreadySignedException : public std::exception {
-        public:
-            const char* what() const throw();
-    };
-
         void beSigned(const Bureaucrat& b);
         void execute(Bureaucrat const &executor) const;
 

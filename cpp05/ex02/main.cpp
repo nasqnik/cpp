@@ -56,7 +56,7 @@ int main(void)
         
         Bureaucrat c("C", 130);
         std::cout << c << std::endl;
-        c.signForm(file1); // form is already signed
+        c.signForm(file1); 
         c.executeForm(file1); // will execute
         std::cout << std::endl;
     }
@@ -108,7 +108,7 @@ int main(void)
         
         Bureaucrat c("C", 40);
         std::cout << c << std::endl;
-        c.signForm(file1); // form is already signed
+        c.signForm(file1); 
         c.executeForm(file1);
         std::cout << std::endl;
         c.executeForm(file1); 
@@ -162,7 +162,7 @@ int main(void)
         
         Bureaucrat c("C", 1);
         std::cout << c << std::endl;
-        c.signForm(file1); // form is already signed
+        c.signForm(file1); 
         c.executeForm(file1); // will execute
         std::cout << std::endl;
     }
