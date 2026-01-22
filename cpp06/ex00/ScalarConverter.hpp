@@ -9,6 +9,8 @@
 #include <iomanip>
 #include <cmath>
 #include <sstream>
+#include <cstdlib>
+#include <cerrno>
 
 class ScalarConverter {
 
@@ -31,6 +33,8 @@ class ScalarConverter {
         static bool isFloat(const std::string& str);
         static bool isDouble(const std::string& str);
         static bool isInt(const std::string& str);
+        static bool isInf(double x);
+        static bool isNan(double x);
         static bool noFraction(double value);
 
         static double makeDouble(const std::string& str, LiteralType type);

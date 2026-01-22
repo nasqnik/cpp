@@ -2,17 +2,18 @@
 
 // Orthodox Canonical Form
 
-ScalarConverter::ScalarConverter() {};
+ScalarConverter::ScalarConverter() {}
 
 ScalarConverter::ScalarConverter(const ScalarConverter& other) {
     (void)other;
-};
+}
         
 ScalarConverter& ScalarConverter::operator=(const ScalarConverter& other) {
     (void)other;
     return *this;
 }
-ScalarConverter::~ScalarConverter() {};
+
+ScalarConverter::~ScalarConverter() {}
 
 // Convert function
         
@@ -49,38 +50,8 @@ ScalarConverter::LiteralType ScalarConverter::detectType(const std::string& str)
 bool ScalarConverter::isChar(const std::string& str) {
     if (str.length() != 1)
         return false;
-    unsigned char c = static_cast<unsigned char>(str[0]);
-    return std::isdigit(c) == 0;
+    return std::isdigit(static_cast<unsigned char>(str[0])) == 0;
 }
-
-bool ScalarConverter::isFloat(const std::string& str) {
-    if (str == "nanf" || str == "inff" || str == "+inff" || str == "-inff")
-        return true;
-
-    if (str.length() < 2 || str[str.length() - 1] != 'f')
-        return false;
-    
-    std::string f = str.substr(0, str.length() - 1);
-
-    char *end = 0;
-    errno = 0;
-
-    std::strtod(f.c_str(), &end);
-
-    return end != f.c_str() && *end == '\0' && errno != ERANGE;
-}
-
-bool ScalarConverter::isDouble(const std::string& str) {
-    if (str == "nan" || str == "inf" || str == "+inf" || str == "-inf")
-        return true;
-
-    char *end = 0;
-    errno = 0;
-    std::strtod(str.c_str(), &end);
-
-    return end != str.c_str() && *end == '\0' && errno != ERANGE;
-}
-
 
 bool ScalarConverter::isInt(const std::string& str) {
 
@@ -98,13 +69,50 @@ bool ScalarConverter::isInt(const std::string& str) {
     return true;
 }
 
+bool ScalarConverter::isFloat(const std::string& str) {
+    if (str == "nanf" || str == "inff" || str == "+inff" || str == "-inff")
+        return true;
+
+    if (str.length() < 2 || str[str.length() - 1] != 'f')
+        return false;
+    
+    std::string f = str.substr(0, str.length() - 1);
+
+    char *end = 0;
+    errno = 0;
+
+    std::strtod(f.c_str(), &end);
+
+    return end != f.c_str() && *end == '\0';
+}
+
+bool ScalarConverter::isDouble(const std::string& str) {
+    if (str == "nan" || str == "inf" || str == "+inf" || str == "-inf")
+        return true;
+
+    char *end = 0;
+    errno = 0;
+    std::strtod(str.c_str(), &end);
+
+    return end != str.c_str() && *end == '\0';
+}
+
 bool ScalarConverter::noFraction(double v) {
 
-    if (std::isnan(v) || std::isinf(v))
+    if (isNan(v) || isInf(v))
         return false;
 
     double valNoFraction;
     return std::modf(v, &valNoFraction) == 0.0;
+}
+
+bool ScalarConverter::isNan(double x) { 
+    return x != x; 
+}
+
+bool ScalarConverter::isInf(double x) { 
+    return x == std::numeric_limits<double>::infinity()
+            || x == -std::numeric_limits<double>::infinity(); 
 }
 
 double ScalarConverter::makeDouble(const std::string& str, ScalarConverter::LiteralType type) {
@@ -142,8 +150,8 @@ void ScalarConverter::printAll(double value) {
 void ScalarConverter::printChar(double value) {
     std::cout << "char: ";
 
-    if (std::isnan(value) || std::isinf(value) || !noFraction(value) ||
-        value < 0.0 || value > 255.0)
+    if (isNan(value) || isInf(value) || !noFraction(value) ||
+        value < 0.0 || value > 127.0)
     {
         std::cout << "impossible" << std::endl;
         return ;
@@ -161,7 +169,7 @@ void ScalarConverter::printInt(double value) {
 
     std::cout << "int: ";
 
-    if (std::isnan(value) || std::isinf(value) || !noFraction(value) ||
+    if (isNan(value) || isInf(value) || !noFraction(value) ||
         value < static_cast<double>(std::numeric_limits<int>::min()) ||
         value > static_cast<double>(std::numeric_limits<int>::max()))
     {
@@ -176,11 +184,11 @@ void ScalarConverter::printFloat(double value) {
 
     std::cout << "float: ";
 
-    if (std::isnan(value)) {
+    if (isNan(value)) {
         std::cout << "nanf" << std::endl;
         return;
     }
-    if (std::isinf(value)) {
+    if (isInf(value)) {
         if (value < 0)
             std::cout << "-inff" << std::endl;
         else
@@ -202,11 +210,11 @@ void ScalarConverter::printDouble(double value) {
 
     std::cout << "double: ";
 
-    if (std::isnan(value)) {
+    if (isNan(value)) {
         std::cout << "nan" << std::endl;
         return;
     }
-    if (std::isinf(value)) {
+    if (isInf(value)) {
         if (value < 0)
             std::cout << "-inf" << std::endl;
         else

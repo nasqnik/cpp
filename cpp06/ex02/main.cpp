@@ -1,22 +1,22 @@
 #include "Base.hpp"
-#include "classA.hpp"
-#include "classB.hpp"
-#include "classC.hpp"
+#include "A.hpp"
+#include "B.hpp"
+#include "C.hpp"
 
 #include <ctime>
 #include <cstdlib>
 #include <iostream>
 
 Base* generateA(void) {
-    return new classA;
+    return new A;
 }
 
 Base* generateB(void) {
-    return new classB;
+    return new B;
 }
 
 Base* generateC(void) {
-    return new classC;
+    return new C;
 }
 
 Base* generate(void) {
@@ -32,32 +32,38 @@ Base* generate(void) {
 }
 
 void identify(Base* p) {
-    if (dynamic_cast<classA*>(p))
-        std::cout << "class A" << std::endl;
-    else if (dynamic_cast<classB*>(p))
-        std::cout << "class B" << std::endl;
-    else if (dynamic_cast<classC*>(p))
-        std::cout << "class C" << std::endl;
+
+    if (!p) {
+        std::cout << "Unknown Type\n"; 
+        return; 
+    }
+
+    if (dynamic_cast<A*>(p))
+        std::cout << "A" << std::endl;
+    else if (dynamic_cast<B*>(p))
+        std::cout << "B" << std::endl;
+    else if (dynamic_cast<C*>(p))
+        std::cout << "C" << std::endl;
     else
         std::cout << "Unknown Type" << std::endl;
 }
 
 void identify(Base& p) {
     try {
-        (void)dynamic_cast<classA&>(p);
-        std::cout << "class A" << std::endl;
+        (void)dynamic_cast<A&>(p);
+        std::cout << "A" << std::endl;
         return ;
     }
     catch(std::exception& e) {}
     try {
-        (void)dynamic_cast<classB&>(p);
-        std::cout << "class B" << std::endl;
+        (void)dynamic_cast<B&>(p);
+        std::cout << "B" << std::endl;
         return ;
     }
     catch(std::exception& e) {}
     try {
-        (void)dynamic_cast<classC&>(p);
-        std::cout << "class C" << std::endl;
+        (void)dynamic_cast<C&>(p);
+        std::cout << "C" << std::endl;
         return ;
     }
     catch(std::exception& e) {}
@@ -80,4 +86,6 @@ int main(void) {
     identify(reference);
 
     delete pointer;
+
+    return 0;
 }
