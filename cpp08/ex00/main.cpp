@@ -8,7 +8,7 @@
 #include <deque>
 #include <set>
 
-#define sep() std::cout << "\n----------------------------------------\n"
+static void sep() { std::cout << "\n----------------------------------------\n"; }
 
 struct PrintInt
 {
@@ -27,8 +27,6 @@ void printContainer(const T& container, const std::string& name)
 
 int main()
 {
-    std::cout << "Tests\n";
-
     {
         sep();
         std::cout << "---Vector test---"<< std::endl;
