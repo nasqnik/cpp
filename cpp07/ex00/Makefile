@@ -6,7 +6,7 @@ NAME		= ex00
 
 SRC			= main.cpp 
 OBJ			= $(SRC:%.cpp=%.o)
-HEADERS		= whatever.hpp
+HEADERS		= whatever.hpp awesome.hpp
 
 all:		$(NAME)
 
