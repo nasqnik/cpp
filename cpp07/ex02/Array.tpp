@@ -1,13 +1,11 @@
-#include "Array.hpp"
-
 template <typename T>
 Array<T>::Array():_elements(NULL), _size(0) {}
 
 template <typename T>
 Array<T>::Array(unsigned int n): _elements(NULL), _size(n){
     if (n > 0)
-        _elements = new T[n]();
-};
+        _elements = new T[n];
+}
 
 template <typename T>
 Array<T>::Array(const Array<T> &other): _elements(NULL), _size(other._size) {
@@ -17,7 +15,7 @@ Array<T>::Array(const Array<T> &other): _elements(NULL), _size(other._size) {
         for (unsigned int i = 0; i < _size; i++)
             _elements[i] = other._elements[i];
     }
-};
+}
 
 template <typename T>
 Array<T>& Array<T>::operator=(const Array<T> &other) {
