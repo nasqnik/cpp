@@ -2,18 +2,18 @@
 
 int main(int argc, char **argv) {
 
-    BitcoinExchange btc;
-    
     if (argc != 2)
     {
-        std::cout << "Usage: ./btc input.txt\n";
+        std::cerr << "Error: could not open file." << std::endl;
         return 1;
     }
+
     try {
-        btc.parseData(argv[1]);
+        BitcoinExchange btc;
+        btc.exchange(argv[1]);
     }
     catch (const std::exception &e) {
-        std::cout << e.what();
+        std::cerr << "Error: " << e.what() << std::endl;
         return 1;
     }
 
