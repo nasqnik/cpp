@@ -205,8 +205,7 @@ void BitcoinExchange::exchange(const std::string& filepath) {
 
         std::map<std::string, double>::const_iterator it = _data.lower_bound(key);
         if (it == _data.end() || it->first != key) {
-            if (it == _data.begin())
-            {
+            if (it == _data.begin()) {
                 std::cerr << "Error: bad input => " << line << std::endl;
                 continue;
             }
