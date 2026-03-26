@@ -1,6 +1,7 @@
 #include "MutantStack.hpp"
 
 #include <iostream>
+#include <list>
 #include <stack>
 
 static void sep() { std::cout << "\n----------------------------------------\n"; }
@@ -31,6 +32,19 @@ static void printReverse(const MutantStack<int>& m, const std::string& name)
     std::cout << "\n";
 }
 
+static void printForwardList(const std::list<int>& l, const std::string& name)
+{
+    std::cout << name << " (forward): ";
+    std::list<int>::const_iterator it = l.begin();
+    std::list<int>::const_iterator end = l.end();
+    while (it != end)
+    {
+        std::cout << *it << " ";
+        ++it;
+    }
+    std::cout << "\n";
+}
+
 int main()
 {
     {
@@ -42,17 +56,20 @@ int main()
         mstack.push(5);
         mstack.push(17);
 
-        std::cout << mstack.top() << std::endl;
+        printForward(mstack, "mstack");
+        std::cout << "mstack.top(): " << mstack.top() << std::endl;
 
         mstack.pop();
-
-        std::cout << mstack.size() << std::endl;
+        std::cout << "mstack.size() after pop: " << mstack.size() << std::endl;
 
         mstack.push(3);
         mstack.push(5);
         mstack.push(737);
         mstack.push(0);
 
+        std::cout << std::endl;
+        std::cout << "mstack.push() 3, 5, 737, 0" << std::endl;
+        std::cout << "mstack:" << std::endl;
         MutantStack<int>::iterator it = mstack.begin();
         MutantStack<int>::iterator ite = mstack.end();
 
@@ -68,6 +85,42 @@ int main()
 
     {
         sep();
+        std::cout << "---Same test with std::list---" << std::endl;
+
+        std::list<int> l;
+
+        l.push_back(5);
+        l.push_back(17);
+
+        printForwardList(l, "list");
+        std::cout << "list.back(): " << l.back() << std::endl;
+
+        l.pop_back();
+        std::cout << "list.size() after pop_back: " << l.size() << std::endl;
+
+        l.push_back(3);
+        l.push_back(5);
+        l.push_back(737);
+        l.push_back(0);
+
+        std::cout << std::endl;
+        std::cout << "list.push_back() 3, 5, 737, 0" << std::endl;
+        std::cout << "list:" << std::endl;
+
+        std::list<int>::iterator it = l.begin();
+        std::list<int>::iterator ite = l.end();
+
+        ++it;
+        --it;
+        while (it != ite)
+        {
+            std::cout << *it << std::endl;
+            ++it;
+        }
+    }
+
+    {
+        sep();
         std::cout << "---Print forward and Print reverse test---"<< std::endl;
         MutantStack<int> m;
         m.push(1);
@@ -79,6 +132,7 @@ int main()
         printReverse(m, "m");
 
     }
+    
     {
         sep();
         std::cout << "--Copy constructor + const iteration test---\n";

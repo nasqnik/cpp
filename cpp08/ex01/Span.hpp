@@ -21,6 +21,7 @@ class Span
         Span& operator=(const Span& other);
         ~Span();
 
+        // addNumber function + overload
         void addNumber(int num);
 
         template <typename T>
@@ -30,9 +31,11 @@ class Span
             _data.insert(_data.end(), start, end);
         }
 
+        // span functions 
         long long shortestSpan() const;
         long long longestSpan() const;
 
+        // exceptions
         class CapacityExceededException: public std::exception {
             public:
                 const char* what() const throw(){
@@ -46,6 +49,7 @@ class Span
                 }
         };
 
+        // getter
         std::vector<int> getData() const;
         unsigned int getCapacity() const;
 };
