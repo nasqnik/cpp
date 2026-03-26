@@ -38,16 +38,23 @@ sudo apt install build-essential clang make
 
 ## Build and Run
 
-Each exercise has its own `Makefile`. From an exercise folder, use:
+Each exercise has its own `Makefile`.
+
+Common available targets:
+
+```bash
+make        # build
+make re     # rebuild from scratch
+make clean  # remove object files
+make fclean # remove object files and executable
+```
+
+To run an exercise, the usual flow is:
 
 ```bash
 make
-make re
-make clean
-make fclean
+./<executable_name> <args if needed>
 ```
-
-Then run the generated executable for that exercise.
 
 ## Notes
 
